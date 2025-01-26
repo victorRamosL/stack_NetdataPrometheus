@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack NetdataPrometheus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        pre {
+            background: #f4f4f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌟 Stack NetdataPrometheus</h1>
+        <p>Un proyecto increíble para la monitorización completa del sistema 🚀✨</p>
+    </header>
+    <div class="container">
+        <h2>📖 Tabla de Contenidos</h2>
+        <ul>
+            <li><a href="#descripcion">Descripción</a></li>
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#instalacion">Instalación</a></li>
+            <li><a href="#uso">Uso</a></li>
+        </ul>
+
+        <h2 id="descripcion">📋 Descripción</h2>
+        <p>
+            Este proyecto despliega un stack con Docker Compose, que contiene un contenedor de 
+            <strong>Netdata</strong>, y otro de <strong>Prometheus</strong>. Además, incluye:
+        </p>
+        <ul>
+            <li>Un contenedor de AlertManager para configurar alertas.</li>
+            <li>Grafana para visualizar los datos de la monitorización 💡</li>
+        </ul>
+
+        <h2 id="caracteristicas">✨ Características</h2>
+        <ul>
+            <li>✅ Interfaz intuitiva y moderna.</li>
+            <li>🌍 Monitorización completa.</li>
+        </ul>
+
+        <h2 id="instalacion">⚙️ Instalación</h2>
+        <p>Clona el repositorio:</p>
+        <pre>git clone https://github.com/victoropss/stack_NetdataPrometheus.git</pre>
+
+        <h2 id="uso">🚀 Uso</h2>
+        <p>Configura los archivos de configuración a tu gusto:</p>
+        <p>Inicializa los contenedores:</p>
+        <pre>docker compose up -d</pre>
+        <p>Accede a los servicios a través del navegador:</p>
+        <ul>
+            <li><strong>Netdata:</strong> <code>tuip:19999</code></li>
+            <li><strong>Prometheus:</strong> <code>tuip:9090</code></li>
+            <li><strong>AlertManager:</strong> <code>tuip:9093</code></li>
+            <li><strong>Grafana:</strong> <code>tuip:3000</code></li>
+        </ul>
+        <p>En Grafana, configura a <strong>Prometheus</strong> y <strong>NetData</strong> como fuentes de datos.</p>
+    </div>
+    <footer>
+        <p>Creado por Victor Ramos | <a href="https://github.com/victoropss/stack_NetdataPrometheus" target="_blank">Repositorio en GitHub</a></p>
+    </footer>
+</body>
+</html>
