@@ -1,0 +1,22 @@
+{{ define "telegram.default" }}
+📣 *Alert*: {{ .CommonLabels.alertname }}
+
+*Severity*: {{ .CommonLabels.severity }}
+
+*Summary*: {{ .Annotations.summary }}
+
+*Description*: {{ .Annotations.description }}
+
+*Start Time*: {{ .StartsAt }}
+
+{{ if .EndsAt }}
+*End Time*: {{ .EndsAt }}
+{{ end }}
+
+*Details*:
+{{ range .CommonLabels.SortedPairs }}
+- {{ .Name }}: {{ .Value }}
+{{ end }}
+
+[View in Prometheus]({{ .ExternalURL }})
+{{ end }}

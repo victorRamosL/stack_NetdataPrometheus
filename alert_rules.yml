@@ -1,0 +1,40 @@
+groups:
+  - name: netdata-alerts
+    rules:
+      # Alerta de alto uso de CPU
+      - alert: HighCPUUsage
+        expr: avg(rate(netdata_system_cpu_percentage_average{dimension="user"}[1m])) > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Uso alto de CPU"
+          description: "El uso promedio de CPU ha superado el 80% durante los últimos 2 minutos."
+
+      # Alerta de bajo espacio en disco
+      - alert: LowDiskSpace
+        expr: (netdata_disk_space_avail / netdata_disk_space_used) < 0.1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Espacio en disco crítico"
+          description: "Queda menos del 10% de espacio disponible en disco."
+
+      # Alerta de alto uso de memoria
+      - alert: HighMemoryUsage
+        expr: (netdata_system_ram_used / netdata_system_ram_total) > 0.9
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Uso alto de memoria"
+          description: "El uso de memoria ha superado el 90%."
+      - alert: TestAlert
+        expr: vector(1) == 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Alerta de prueba"
+          description: "Esta es una alerta de prueba."

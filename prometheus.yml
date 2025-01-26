@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'netdata'
+    metrics_path: '/api/v1/allmetrics?format=prometheus'
+    static_configs:
+      - targets: ['yourip:19999']
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['yourip:9093']
+
+rule_files:
+  - "/etc/prometheus/alert_rules.yml"
