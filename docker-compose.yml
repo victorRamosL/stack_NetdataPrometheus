@@ -38,11 +38,25 @@ services:
 
   alertmanager:
     image: prom/alertmanager:latest
-    container_name: alertmanagerr
+    container_name: alertmanager
     ports:
       - "9093:9093"
     volumes:
       - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword123
+      MYSQL_DATABASE: monitoring
+      MYSQL_USER: monitoring_user
+      MYSQL_PASSWORD: monitoring_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
     restart: unless-stopped
 
 volumes:
@@ -50,3 +64,4 @@ volumes:
   netdata-lib:
   netdata-cache:
   grafana-data:
+  mysql-data:
